@@ -242,6 +242,32 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
+
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    lazy = false,
+    config = function()
+      require "plugins.configs.coc"
+    end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>"},
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>"},
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>"},
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>"},
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>"},
+    },
+  }
 }
 
 local config = require("core.utils").load_config()
